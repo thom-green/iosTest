@@ -34,20 +34,13 @@ function openTestFunction(){
   window.location = "clericZoll://";
   
   setTimeout(function() {
-    alert('APP NOT INSTALLED');
+    if(document.visibilityState === 'visible') {
+        alert('This is not iOS');
+    }
+    else {
+        console.log('This is iOS');
+    }
   }, 25);
   
 }
-function openAppStore() {
-  var url = "itms-apps://itunes.apple.com";
-  window.location = url;
-  if(document.visibilityState != 'visible') {
-        console.log('is iOS');
-  }
-  else {
-      console.log('test')
-  }
-}
-
-
 </script>
