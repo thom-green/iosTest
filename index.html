@@ -43,4 +43,18 @@ function openTestFunction(){
   }, 25);
   
 }
+
+window.addEventListener("blur",function(){focuschange('notInFocus')});
+window.addEventListener("focus",function(){focuschange('inFocus')});
+
+function focuschange(val) {
+    if(val === 'notInFocus'){
+        console.log('Not in focus');
+    }
+     else {
+        alert('In focus');
+     }
+}
+        
+        
 </script>
