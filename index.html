@@ -1,5 +1,7 @@
 <div> The localStorage limit is <span id="size">???</span> KBs. </div> 
 
+<button onclick="openAppStore()">Open apple app store</button>
+
 <button onclick="openTestFunction()">Test link</button>
 
 <script>
@@ -36,4 +38,12 @@ function openTestFunction(){
   }, 25);
   
 }
+function openAppStore() {
+  var url = "itms-apps://itunes.apple.com";
+  window.location = url;
+  if(document.hidden) {
+    conole.log('is iOS')
+  }
+}
+
 </script>
