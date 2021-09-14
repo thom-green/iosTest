@@ -33,35 +33,26 @@ function gen(n) {
     var el = document.getElementById('size');        
     el.innerHTML = localStorage.getItem('size');
 
-function openTestFunction(){
-  window.location = "clericZoll://";
-  
-  setTimeout(function() {
-    if(document.visibilityState === 'visible') {
-        alert('This is not iOS');
-    }
-    else {
-        console.log('This is iOS');
-    }
-  }, 25);
-  
-}
+function openTestFunction(){  
+          var appurl = "clericZoll://";
+          var appstore = 'https://testflight.apple.com/join/MvOvWzTO';
 
-window.addEventListener("blur",function(){focuschange('notInFocus')});
-window.addEventListener("focus",function(){focuschange('inFocus')});
-
-function focuschange(val) {
-    if(val === 'notInFocus'){
-        isIos = false;
-    }
-     else {
-         isIos = true;
-     }
+          var timeout;
+          function preventPopup() {
+            clearTimeout(timeout);
+            timeout = null;
+            window.removeEventListener('pagehide', preventPopup);
+          }
+          function startApp() {
+            window.location = appurl;
+            timeout = setTimeout(function(){
+              if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
+                document.location = appstore;
+              }
+            }, 1000);
+            window.addEventListener('pagehide', preventPopup);
+          }
+  
 }
-        
-if isIos == true {
-        alert('We think this is iOS');
-}
-        
-        
+            
 </script>
