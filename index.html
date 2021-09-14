@@ -2,6 +2,8 @@
 
 <button onclick="openTestFunction()">Test link</button>
 
+<a onClick="javascript:try_to_open_app();" href="clericZoll://:">App name</a>
+
 <script>
         
 isIos = '';
@@ -30,6 +32,14 @@ function gen(n) {
     
     var el = document.getElementById('size');        
     el.innerHTML = localStorage.getItem('size');
+        
+    function open_appstore() {
+        window.location='http://itunes.com/';
+    }
+
+    function try_to_open_app() {
+        setTimeout('open_appstore()', 300);
+    }
 
 function openTestFunction(){  
         var fallback = 'https://testflight.apple.com/join/MvOvWzTO';
