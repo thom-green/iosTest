@@ -75,20 +75,7 @@ function DeepLinker(options) {
       }
 
       didHide = false; // reset
-    } else {
-      // ignore duplicate focus event when returning from native app on
-      // iOS Safari 13.3+
-      if (!hasFocus && options.onFallback) {
-        // wait for app switch transition to fully complete - only then is
-        // 'visibilitychange' fired
-        setTimeout(function() {
-          // if browser was not hidden, the deep link failed
-          if (!didHide) {
-            options.onFallback();
-          }
-        }, 1000);
-      }
-    }
+    } 
 
     hasFocus = true;
   };
@@ -129,9 +116,6 @@ var url = 'clericzoll://device_id=DB36AE95-C589-44F9-9B84-B6BF04A111E8&case_id=K
 var linker = new DeepLinker({
   onIgnored: function() {
     alert('Unable to open iOS deep link, is not iOS');
-  },
-  onFallback: function() {
-    alert('Is iOS but user dismissed the open prompt');
   },
 });
             
