@@ -32,25 +32,15 @@ function gen(n) {
     el.innerHTML = localStorage.getItem('size');
 
 function openTestFunction(){  
-          var appurl = "clericZoll://";
-          var appstore = 'https://testflight.apple.com/join/MvOvWzTO';
+        var fallback = 'https://testflight.apple.com/join/MvOvWzTO';
+        var link = "clericZoll://";
 
-          var timeout;
-          function preventPopup() {
-            clearTimeout(timeout);
-            timeout = null;
-            window.removeEventListener('pagehide', preventPopup);
+          try {
+            document.location = link;
+          } catch(err) {
+            document.location = fallback;
           }
-          function startApp() {
-            window.location = appurl;
-            timeout = setTimeout(function(){
-              if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
-                document.location = appstore;
-              }
-            }, 1000);
-            window.addEventListener('pagehide', preventPopup);
-          }
-  
+
 }
             
 </script>
