@@ -5,6 +5,9 @@
 <button onclick="openTestFunction()">Test link</button>
 
 <script>
+        
+isIos = '';
+        
 function gen(n) {
         return new Array((n * 1024) + 1).join('a')
     }
@@ -49,11 +52,15 @@ window.addEventListener("focus",function(){focuschange('inFocus')});
 
 function focuschange(val) {
     if(val === 'notInFocus'){
-        alert('Not in focus');
+        isIos = false;
     }
      else {
-        alert('In focus');
+         isIos = true;
      }
+}
+        
+if isIos == true {
+        alert('We think this is iOS');
 }
         
         
