@@ -36,8 +36,10 @@ function openTestFunction(){
         var link = "clericZoll://";
 
           try {
+            alert('attempting to open app');
             document.location = link;
           } catch(err) {
+            alert('attempting to go to fallback');
             document.location = fallback;
           }
 
