@@ -41,18 +41,13 @@ function openTestFunction(){
 function openAppStore() {
   var url = "itms-apps://itunes.apple.com";
   window.location = url;
-  if(document.hidden) {
-    alert('is iOS');
+  if(document.visibilityState === 'visible') {
+        alert('Not iOS');
   }
   else {
-        alert('Is not iOS');
+        console.log('is iOS');
   }
 }
-        
-function onVisibilityChange() {
-  console.log(document.visibilityState);
-};
-        
-document.addEventListener('visibilitychange', onVisibilityChange);
+
 
 </script>
