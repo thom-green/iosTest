@@ -1,0 +1,39 @@
+<div> The localStorage limit is <span id="size">???</span> KBs. </div> 
+
+<button onclick="openTestFunction()">Test link</button>
+
+<script>
+function gen(n) {
+        return new Array((n * 1024) + 1).join('a')
+    }
+     
+    //window.localStorage.clear();
+     
+    // Determine size of localStorage if it's not set
+    if (!localStorage.getItem('size')) {
+        var i = 0;
+        try {
+            // Test up to 10 MB
+            for (i = 0; i <= 10000; i += 250) {
+                localStorage.setItem('test', gen(i));
+            }
+        } catch (e) {
+            localStorage.removeItem('test');
+            localStorage.setItem('size', i ? i - 1 : 0);
+            
+        }
+    }
+    
+    
+    var el = document.getElementById('size');        
+    el.innerHTML = localStorage.getItem('size');
+
+function openTestFunction(){
+  window.location = "clericZoll://";
+  
+  setTimeout(function() {
+    alert('APP NOT INSTALLED');
+  }, 25);
+  
+}
+</script>
