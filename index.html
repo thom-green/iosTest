@@ -128,7 +128,7 @@ var url = '"clericZoll://';
 
 var linker = new DeepLinker({
   onIgnored: function() {
-    alert('Unable to open iOS deep link, could not be iOS');
+    alert('Unable to open iOS deep link, is not iOS');
   },
   onFallback: function() {
     alert('Is iOS but user dismissed the open prompt');
