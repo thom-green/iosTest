@@ -48,5 +48,11 @@ function openAppStore() {
         alert('Is not iOS');
   }
 }
+        
+function onVisibilityChange() {
+  console.log(document.visibilityState);
+};
+        
+document.addEventListener('visibilitychange', onVisibilityChange);
 
 </script>
